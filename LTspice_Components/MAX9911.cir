@@ -1,0 +1,143 @@
+* MAX9911 MACROMODEL
+* ----------------------------
+* Revision 0. 11/2005
+* ----------------------------
+* The MAX9911 ultra low supply current opamps operate from a single
+* +1.8 to +5.5V supply and feature 200kHz GBW, Rail-to-Rail output
+* and a low power shutdown mode. 
+* ----------------------------
+* Connections
+*       1 = IN+
+*       2 = VSS
+*       3 = IN-
+*       4 = OUT
+*       5 = SD\
+*       6 = VDD   
+*-----------------------------
+**********************************
+.SUBCKT MAX9911 1 2 3 4 5 6
+ XAMP9911 1 2 3 4 5 6 MAX9911_S
+.ENDS
+**********************************
+
+**********************************
+.SUBCKT MAX9911_S 17 18 15 42 31 10
+**********************************
+* 10 = VCC
+* 18 = VEE
+* 17 = IN+
+* 15 = IN-
+* 31 = SD\
+* 42 = OUT
+**************
+*INPUT STAGE
+VS1 10 11 0V
+FSUP 18 10 VS1 1
+GBIAS 11 12 33 32 1.27U
+*IBIAS 11 12 1.27U 
+M1 13 16 12 12 MOSP
+M2 14 15 12 12 MOSP
+VOS 17 A16 0.2M
+ECMPSRR A16 16 RA 100 1    
+RD1 13 18 54.75K    
+RD2 14 18 54.75K
+
+C1 13 14 3.93P
+**************
+*INPUT BIAS CURRENT 
+IBIAS1 12 16 1P
+IBIAS2 12 15 1P 
+**************************************************
+*GAIN STAGE 
+GA1 100 A1 14 13 10U 
+RP1 A1 100 100K
+CP1 A1 100 0.5P
+********
+GA 25 100 A1 100 1M  
+RO1 25 100 3.163K
+GB 26 100 25 100 1
+RO2 26 100 100K
+EF 27 100 26 100 1   
+RLF 27 100 1MEG 
+CC 25 27 695.5P
+***************
+*VOLTAGE LIMITING
+DP1 26 151 DY           
+EP1 151 153 10 18 0.5
+EP3 153 155 27 199 1
+HCOMP1 100 155 VIS2 111.11
+DP2 152 26 DY
+EP2 154 152 10 18 0.5
+EP4 156 154 199 26 1
+HCOMP2 100 156 VIS2 111.11
+**************************************************
+*CMRR (CMRR DC RESPONSE)
+RA1 RA 100 1 
+GCM RA 100 18 12 100U 
+**************************************************
+*PSRR (PSRR DC RESPONSE)
+GPS 100 RA 10 18 -67.8U
+**************************************************
+****************
+*CURRENT LIMITING
+RO3 27 199 162
+D1 30 199 DY
+D2 199 28 DY
+D3 29 28 DY
+D4 30 29 DY
+GLIM1 28 30 33 32 15M
+RILIM 28 30 0.1G
+**************************************************
+VIS2 29 42 0V    
+**************************************************
+*INTERNAL GND AT VDD/2
+EG1 100 18 10 18 0.5
+**************************************************
+*SUPPLY CURRENT MODEL
+*BIAS CURRENT
+ISUP 10 18 1.21N
+GSUP2 10 18 33 32 4U
+***************
+*LOAD CURRENT
+DSUP 18 10 DX
+HSUP 60 100 VIS2 100
+DSUP1 60 61 DY
+RSUP1 61 100 1MEG
+GSUP 10 18 61 100 10M        
+***************
+*MAXIMUM INPUT COMMON MODE VOLTAGE LIMIT
+DIL 12 80 DZ
+RIL 80 82 100 
+VIL 82 81 0.8V
+EIL 81 18 10 18 1
+**************
+*MINIMUM SUPPLY VOLTAGE LIMIT 
+VVL 85 18 1.8V
+VIS4 85 86 0V
+RVL 86 87 30K
+DVL3 87 88 DY
+EVL 88 18 10 18 1
+DVL4 18 12 DY
+DVL5 12 84 DY
+FVL 84 18 VIS4 4 
+**************
+*SHUTDOWN
+RSHIN 31 100 5MEG
+VSH2 34 18 2.0V
+GSH1 100 32 poly(2) 34 31 32 100 0 1M 1.2M
+******
+DSH1 100 32 DY
+DSH2 32 33 DY
+CSH1 32 100 100P
+VSH1 33 100 1V
+**************************************************
+.MODEL DA D(IS=100E-14 RS=0.5k)
+.MODEL MOSP PMOS(VTO=-0.7 KP=261.5U)
+.MODEL DX D(IS=100E-14)
+.MODEL DZ D(N=10M)
+.MODEL DY D(IS=100E-14 N=0.1M)
+**************************************************
+.ENDS
+
+
+* Copyright (c) 2003-2012 Maxim Integrated Products.  All Rights Reserved.

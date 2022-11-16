@@ -1,0 +1,94 @@
+*
+**********************************************************
+*
+* NCR401T
+*
+* NXP Semiconductors
+*
+* LED Driver
+* Stabilized output current   10 mA  (typ)
+* Stabilized output current   65 mA  (max with external resistor)
+* Supply voltage              40 V   (max)
+* Output voltage              38 V   (max)
+* R_int                       88 Ohm (typ)
+* R_Base		   21500 Ohm (typ)
+*
+* Package pinning does not match Spice model pinning.
+* Package: SOT23
+* 
+* Package Pin 1: GND          
+* Package Pin 2: Supply voltage
+* Package Pin 3: Iout
+*
+*
+* Extraction date (week/year): 46/2013
+* Simulator: Spice 3
+*
+**********************************************************
+*nt#
+.MODEL Transistor PNP
++ IS = 1.466E-013
++ NF = 1.047
++ ISE = 1.191E-014
++ NE = 1.387
++ BF = 365
++ IKF = 0.5038
++ VAF = 33.35
++ NR = 1.045
++ ISC = 5.425E-015
++ NC = 1.087
++ BR = 35.49
++ IKR = 3
++ VAR = 9.419
++ RB = 39
++ IRB = 9.5E-005
++ RBM = 3.024
++ RE = 0.128
++ RC = 0.1156
++ XTB = 1.295
++ EG = 1.11
++ XTI = 5.06
++ CJE = 8.778E-012
++ VJE = 0.7445
++ MJE = 0.3727
++ TF = 1E-009
++ XTF = 18
++ VTF = 5
++ ITF = 0.8
++ PTF = 0
++ CJC = 5.461E-012
++ VJC = 0.972
++ MJC = 0.522
++ XCJC = 1
++ TR = 4.7E-008
++ CJS = 0
++ VJS = 0.75
++ MJS = 0.333
++ FC = 0.79
+*
+.SUBCKT Diode
+R1 1 2 1.091E+010
+D1 1 2 DIODEPART1
+D2 1 2 DIODEPART2
+*
+.MODEL DIODEPART1 D
++ IS = 8.046E-014
++ N = 2.05
++ BV = 133.4
++ IBV = 2.44E-007
++ RS = 4.19E-005
++ CJO = 4.875E-013
++ VJ = 0.68
++ M = 0.03
++ FC = 0.5
++ TT = 0
++ EG = 1.1
++ XTI = 28.39
+*
+.MODEL DIODEPART2 D
++ IS = 1.081E-016
++ N = 1.04
++ RS = 5.248
++ XTI = 9.595
+.ENDS
+*

@@ -1,0 +1,127 @@
+* ADR3425 SPICE MACROMODEL
+****  ViKo исправил POLY, RES
+* Description: Reference
+* Generic Desc: 2.5Vout, 5.5Vin, CMOS REF, micro power
+* Developed by: HH/ADSJ 
+* Revision History: 08/10/2012 - Updated to new header style
+* 1.0 ( 02/2010)
+* Copyright 2010, 2012 by Analog Devices, Inc.
+*
+*
+* Refer to http://www.analog.com/Analog_Root/static/techSupport/designTools/spiceModels/license/spice_general.html for License Statement. Use of this model 
+* indicates your acceptance of the terms and provisions in the License Statement.
+*
+* BEGIN Notes:
+*
+* Not Modeled:
+*    
+* Parameters modeled include: 
+*
+* END Notes
+*
+*  NODE NUMBERS
+*                VF
+*                |  VS 
+*                |  |   EN 
+*                |  |   |  VIN
+*                |  |   |   |   GS 
+*                |  |   |   |   |  GF
+*                |  |   |   |   |  | 
+.SUBCKT ADR3425  6 100 101  2   5  4    
+*
+* 1.25V REFERENCE
+I1     4  10   1.25E-05
+R1     10  4   RTC 1.000E+05
+*
+G1     4  10   22  4  1E-6
+F1     10  4   VS  3.38E-07;  Load regulation
+RBODE 101 4   6E6;  
+*
+* LINE REGULATION
+*
+EPSY  (21,4) POLY(1) (2,4) -4.934063E+01 8.971023E+00
+**** old EPSY   21 4    POLY(1) (2,4) -4.934063E+01 8.971023E+00
+RPS1   21 22   5.684E+04
+RPS2   22  4   1.592E-01
+CPS1   21 22   1.000E-06
+*
+* INTERNAL OP AMP
+*
+R7   100 19   1E5;  100 is Vsense
+R8    19  5   1E5;       5 is ground sense
+EOS 19a 19 POLY(3) (22,4) (81, 5) (60, 61) 0 1 1 1  
+G2  (4,11)  (10,19a)  1E-4;  10 is + input, 19 is minus input
+R2   4  11   1E8
+EZ (17b 4) (4 17) 1
+RZ 17b  17a  5.3E+1
+CF 17a 11   6.5E-09
+D1     11 12   DX
+V1     12  4   3.8
+*
+* SECONDARY POLE
+*
+G3     4  13   (11,4)  1E-5
+R3     4  13   1E5
+C2     4  13   5.0E-11
+*
+* VOLTAGE NOISE REFERENCE
+*
+VN1 80  5 0
+RN1 80  5 6.78E-00
+HN  81  5 VN1 1.5E+04
+RN2 81  5 1
+*
+* FLICKER NOISE
+*
+D60 60 0 DIN1 1000
+I60 0 60 1m
+D61 61 0 DIN1
+I61 0 61 1u
+*
+* ENABLE
+*   ---  2 is Vin, 4 is GF, 101 is EN
+S7test  10  4 (188, 4) SCLOSE; (4 of 5)
+*
+M7  188 101  2   2 PLX  L=1.0E-06 W=4.0E-06 
+M8  188 101  4   4 NLX  L=1.0E-06 W=7.0E-06
+Rpup 188 2 1E+08
+*
+* OUTPUT STAGE
+*
+****  GSY   (2,4) POLY(2) (2,4) (6,4)  -1.0E-06 2E-06 19E-06
+GSY   2  4    POLY(2) (2,4) (6,4)  -1.0E-06 2E-06 19E-06
+G4    4  14   (13,4)    1E-04
+R4    4  14   1E6
+M1    17 46 16 16 POX L=1E-6 W=5.50E-4;  DGSB
+EG1    2 46 POLY(1) (14,4) 9.55E-01 1
+M2    17 47  4  4 NOX L=1E-6 W=1.15E-3;  DGSB
+EG2   47  4  POLY(1) (4,14) 1.0E-00 1
+*
+VS    17 18  DC 0;  output current sense
+L1    18  6  1E-6; 6 is output
+*
+* OUTPUT CURRENT LIMIT
+*
+R6     2  16   6.85E+01
+*
+*.MODEL  QN  NPN(IS=1E-15  BF=1000)
+.MODEL  DX  D(IS=1E-18)
+.MODEL RTC res (R=1, DEV=1E-02, LOT=1E-03, TC1=1.5E-6, TC2=-1.5E-8)
+**** old .MODEL RTC res (R=1, DEV=1E-02, TC1=1.5E-6, TC2=-1.5E-8)
+.MODEL RKT res (R=1, TC1=1.0E+01)
+.MODEL NOX NMOS( vto=0.9 kp=5E-06 rd=3E-0 rs=2E+01 LAMBDA=0.04)
+.MODEL POX PMOS(vto=-0.9 kp=5E-06 rd=3E-0 rs=5E+0 LAMBDA=0.04); 
+.MODEL DNOISE D(IS=1E-14,RS=0,KF=2.4E-09)
+.MODEL DIN1 D(IS=1E-15, RS=3.70E+04, KF=1.8E-15, AF=1)
+.MODEL PLX PMOS (LEVEL=2,KP=12.00E-05,VTO=-1.10, LAMBDA=0.05,RB=1E+00)
+.MODEL NLX NMOS (LEVEL=2,KP=20.00E-05,VTO=+0.50, LAMBDA=0.05,RB=1E+00)
+.MODEL SCLOSE VSWITCH (VON=2.0, VOFF=0.69, RON=1E-01, ROFF=1E+09)
+*
+.ENDS ADR3425
+*
+
+
+
+
+
+

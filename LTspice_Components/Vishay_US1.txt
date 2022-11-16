@@ -1,0 +1,86 @@
+****************************************
+* (c)1999 Thomatronik GmbH             *
+*   info@thomatronik.de                *
+*                                      *
+* Author: Arpad Buermen                *
+*   Arpad.Burmen@ieee.org              *
+****************************************
+
+.MODEL US1G D (
++   N=2.79019
++  IS=2.71097E-006
++  RS=0.0145165
++  EG=1.11
++ XTI=3
++ CJO=3.71999E-011
++  VJ=3.63462
++   M=0.834381
++  FC=0.5
++  TT=1.23315E-007
++  BV=400
++ IBV=0.1
++  KF=0
++  AF=1 )
+
+****************************************
+* (c)1999 Thomatronik GmbH             *
+*   info@thomatronik.de                *
+*                                      *
+* Author: Arpad Buermen                *
+*   Arpad.Burmen@ieee.org              *
+****************************************
+
+.MODEL US1J D (
++   N=4.1587
++  IS=2.78613E-006
++  RS=0.112241
++  EG=1.11
++ XTI=3
++ CJO=2.92033E-011
++  VJ=3.46059
++   M=0.835798
++  FC=0.5
++  TT=1.84973E-007
++  BV=600
++ IBV=0.1
++  KF=0
++  AF=1 )
+
+
+**********************************
+* Copyright:                     *
+*   Thomatronik GmbH, Germany    *
+*   info@thomatronik.de          *
+**********************************
+*   SPICE3
+.model us1m d is = 6.34002E-007 n = 3.35096 rs = 0.0784793
++ eg = 1.8 xti = 3.99999 tnom = 27
++ cjo = 2.89935E-011 vj = 2.45149 m = 0.7 fc = 0.5
++ tt = 1.66475E-007 bv = 1100 ibv = 50 af = 1 kf = 0
+
+
+****************************************************************
+* produced by Vishay General Semiconductor Taiwan
+* Allen Su, 2019/7/23
+* PSPICE
+
+.MODEL p_us1d D IS=2.5e-7 RS=0.03 N=2.17 BV=220 IBV=0.33
++ CJO=39.5p M=0.77 vj=0.8 TT=123n eg=1.11 xti=2.5 t_measured=27
+
+
+****************************************************************
+* produced by Vishay General Semiconductor Taiwan
+* Allen Su, 2017/3/28
+* PSPICE
+
+.MODEL p_us1j D IS=2.5e-7 RS=0.03 N=2.17 BV=660 IBV=1
++ CJO=39.5p M=0.77 vj=0.8 TT=123n eg=1.11 xti=2.5 t_measured=27
+
+
+****************************************************************
+* produced by Vishay General Semiconductor Taiwan
+* Allen Su, 2015/12/4
+* PSPICE
+.MODEL p_us1m D IS=2.5e-7 RS=0.03 N=2.17 BV=1100 IBV=1.65
++ CJO=39.5p M=0.77 vj=0.8 TT=123n eg=1.11 xti=2.5 t_measured=27
+

@@ -1,0 +1,102 @@
+* ADA4638-1 SPICE Macro-model
+* Typical Values simulated for Vsy = 30V and T=25°C
+* 10/11 Rev 0
+* VW ADSJ
+*
+* Copyright 2011 by Analog Devices
+* Refer to "README.DOC" file for License Statement.  Use of this
+* model indicates your acceptance of the terms and provisions in
+* the License Statement.
+*
+* Node Assignments
+*                       noninverting input
+*                       |   inverting input
+*                       |   |    positive supply
+*                       |   |    |   negative supply
+*                       |   |    |   |   output
+*                       |   |    |   |   |
+*                       |   |    |   |   |
+.SUBCKT ADA4638         1   2   99  50  45
+*
+* INPUT STAGE
+*
+M1   4  7  8  8 PIX L=1E-6 W=1.22E-03
+M2   6  2  8  8 PIX L=1E-6 W=1.22E-03
+RD1  4 50 8.00E+02
+RD2  6 50 8.00E+02
+C1   4  6 3.34E-11
+I1  99  8 5.00E-04
+V1   9  8 1.968E+00
+D1   9 99 DX
+EOS  7  1 POLY(4) (73,98) (22,98) (81,98) (281,98) 5.00E-07 1 1 1 1
+IOS  1  2 1.25E-11
+Ccm1 1 0 9E-12
+Ccm2 2 0 9E-12
+Cdm 1 2 4E-12
+*
+* CMRR
+*
+E1  72 98 POLY(2) (1,98) (2,98) 0 6.58E-03 6.58E-03
+R10 72 73 4.55E+01
+R20 73 98 7.96E-02
+C10 72 73 1.00E-06
+*
+* PSRR
+*
+EPSY 21 98 POLY(1) (99,50) +4.532E+01 -1.5107E+00
+RPS1 21 22 6.37E+03
+RPS2 22 98 5.31E-02
+CPS1 21 22 1.00E-06
+*
+* VOLTAGE NOISE REFERENCE 
+*
+VN1 80 98 0
+RN1 80 98 80E-6
+HN  810 98 VN1 120
+HN_add  281 98 VN1 2.9E-0
+RN_add 281 98 1
+*
+RN10 810 183 5.3
+CN10 183 98 2e-6
+*
+CN20 183 184 2.23E-07
+RN20 184 98 10
+*
+RN30 184 81 129k
+CN30 81 98 2.41E-10
+*
+* INTERNAL VOLTAGE REFERENCE
+*
+EREF 98  0 POLY(2) (99,0) (50,0) 0 0.5 0.5
+GSY  99 50 POLY(1) (99,50) 1.493E-04 3.40E-06
+EVP  97 98 POLY(1) (99,50) 0.1E0 0.04
+EVN  51 98 POLY(1) (50,99) 0.08E0 0.08
+*
+* GAIN STAGE
+*
+G1 98 30 (4,6) 1.43E-02
+R1 30 98 1.00E+06
+CF 30 31 3.20E-09
+RZ 45 31 2.59E+02
+D3 30 97 DX
+D4 51 30 DX
+*
+* OUTPUT STAGE
+*
+M5  45 46 99 99 POX L=1E-6 W=8.09E-04
+M6  45 47 50 50 NOX L=1E-6 W=1.75E-03
+EG1 99 46 POLY(1) (98,30) 4.946E-01 1
+EG2 47 50 POLY(1) (30,98) 4.412E-01 1
+*
+* MODELS
+*
+.MODEL POX PMOS (LEVEL=2,KP=1.00E-05,VTO=-0.328,LAMBDA=0.01,RD=0)
+.MODEL NOX NMOS (LEVEL=2,KP=1.00E-05,VTO=+0.328,LAMBDA=0.01,RD=0)
+.MODEL PIX PMOS (LEVEL=2,KP=1.00E-05,VTO=-5.00E-01,LAMBDA=0.01)
+.MODEL DX D(IS=1E-14,RS=0.1)
+.MODEL DNOISE D(IS=1E-14,RS=0,KF=4.91E-16)
+*
+*
+.ENDS ADA4638
+*
+*$

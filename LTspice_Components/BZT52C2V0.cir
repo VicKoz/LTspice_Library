@@ -1,0 +1,34 @@
+*
+*DIODES_INC_SPICE_MODEL
+*ORIGIN=DZSL_DPG_SU
+*SIMULATOR=PSPICE
+*DATE=16/04/2014
+*VERSION=1
+
+*Comments:zener break down is modelled only at 25°c
+
+
+.SUBCKT BZT52C2V0 1 2 
+D1 1 2 DF
+D2 2 1 DR
+.model DF D(IS=.00015n RS=0.055 CJO=500p M=0.5 VJ=0.4 N=1.1 IKF=200m TT=40n EG=1.05 TRS1=.01m)
+.model DR D(IS=.6n RS=15 N=3 IKF=.72u T_ABS=25)
+.ENDS
+
+
+*         (c)  2014 Diodes Inc
+*   The copyright in these models  and  the designs embodied belong
+*   to Diodes Incorporated (" Zetex ").  They  are  supplied
+*   free of charge by Zetex for the purpose of research and design
+*   and may be used or copied intact  (including this notice)  for
+*   that purpose only.  All other rights are reserved.  The models
+*   are believed accurate but no condition  or warranty  as to their
+*   merchantability or fitness for purpose is given and no liability
+*   in respect of any use is accepted by Diodes Incorporated, its distributors
+*   or agents.
+*
+*   Diodes Zetex Semiconductors Ltd, Zetex Technology Park, Chadderton,
+*   Oldham, United Kingdom, OL9 9LL
+*
+
+.SIMULATOR DEFAULT

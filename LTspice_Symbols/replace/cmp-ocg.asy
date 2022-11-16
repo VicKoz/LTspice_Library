@@ -1,0 +1,31 @@
+Version 4
+SymbolType CELL
+LINE Normal -32 -32 32 0
+LINE Normal -32 32 32 0
+LINE Normal -32 -32 -32 32
+LINE Normal 0 -32 0 -16
+LINE Normal 0 32 0 16
+LINE Normal 16 8 16 16
+LINE Normal 16 -8 16 -16
+WINDOW 0 33 -30 Left 2
+WINDOW 38 32 33 Left 2
+SYMATTR Prefix X
+SYMATTR Description Comparator
+PIN -32 -16 LEFT 8
+PINATTR PinName IN+
+PINATTR SpiceOrder 1
+PIN -32 16 LEFT 8
+PINATTR PinName IN-
+PINATTR SpiceOrder 2
+PIN 0 -32 RIGHT 8
+PINATTR PinName VP
+PINATTR SpiceOrder 3
+PIN 0 32 RIGHT 8
+PINATTR PinName VN
+PINATTR SpiceOrder 4
+PIN 16 -16 LEFT 8
+PINATTR PinName OC
+PINATTR SpiceOrder 5
+PIN 16 16 LEFT 8
+PINATTR PinName OG
+PINATTR SpiceOrder 6

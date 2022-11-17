@@ -1,9 +1,9 @@
 ********************************************************************************
 *	@author		ViKo
-*	@date		2016.10
-*	@brief		Diodes spice models
+*	@date		2016 - 2022
+*	@brief		MOSFETs spice models
 *	@note		place link to folder in control settings LTspice
-*
+********************************************************************************
 *
 *       _/_/_/_/_/_/                          
 *     _/       _/                             
@@ -38,7 +38,7 @@
 *                                                   *
 *****************************************************
 
-* MODELLING FOR STB60NH02LT4 ***************************************************
+* MODELLING FOR STB60NH02LT4 ___________________________________________________
  
 .SUBCKT STB60NH02LT4 1 2 3
 LG 2 4  7.5E-09
@@ -99,7 +99,7 @@ R2  102 0  1MEG
 * END OF MODELLING
 
 
-* MODELLING FOR STB60NF10T4 ****************************************************
+* MODELLING FOR STB60NF10T4 ____________________________________________________
  
 .SUBCKT STB60NF10T4 1 2 3
 LG 2 4  7.5E-09
@@ -157,3 +157,241 @@ R2  102 0  1MEG
 .ENDS STB60NF10T4
 
 * END OF MODELLING
+
+
+********************************************************************************
+*	DIODES INCORPORATED
+*	https://www.diodes.com/products/discrete/mosfets/mosfet-master-table/#collection-8360=~(Polarity~(~'P)~VGS*20*28th*29*20Max~(~0.7~1.6)~Packages~(~'SOT23~'SOT23*20*28Standard*29~'SOT23F))
+********************************************************************************
+
+**  DMG2301LK Spice Model  _____________________________________________________
+*   TERMINALS:  D  G  S
+.SUBCKT DMG2301LK 10 20 30 
+M1 1 2 3 3 PMOS L = 1E-006 W = 1E-006 
+RD 10 1 0.08416 
+RS 30 3 0.001 
+RG 20 2 40.9 
+CGS 2 3 1.265E-010 
+EGD 12 30 2 1 1 
+VFB 14 30 0 
+FFB 2 1 VFB 1 
+CGD 13 14 1.85E-010 
+R1 13 30 1 
+D1 13 12 DLIM 
+DDG 14 15 DCGD 
+R2 12 15 1 
+D2 30 15 DLIM 
+DSD 10 3 DSUB 
+.MODEL PMOS PMOS LEVEL = 3 U0 = 400 VMAX = 1E+006 ETA = 0.001 
++ TOX = 6E-008 NSUB = 1E+016 KP = 6.629 KAPPA = 19.32 VTO = -0.6459 
+.MODEL DCGD D CJO = 1.177E-010 VJ = 0.611 M = 0.6 
+.MODEL DSUB D IS = 0.0001419 N = 4.041 RS = 7.253E-009 BV = 22 CJO = 2.853E-011 VJ = 0.7195 M = 0.6 
+.MODEL DLIM D IS = 0.0001 
+.ENDS
+* Diodes DMG2301LK Spice Model v1.0M Last Revised 2016/4/28
+
+
+**  DMG2301L Spice Model  ______________________________________________________
+*   TERMINALS:  D  G  S
+.SUBCKT DMG2301L 10 20 30 
+M1 1 2 3 3 PMOS L = 1E-006 W = 1E-006 
+RD 10 1 0.08416 
+RS 30 3 0.001 
+RG 20 2 40.9 
+CGS 2 3 1.265E-010 
+EGD 12 30 2 1 1 
+VFB 14 30 0 
+FFB 2 1 VFB 1 
+CGD 13 14 1.85E-010 
+R1 13 30 1 
+D1 13 12 DLIM 
+DDG 14 15 DCGD 
+R2 12 15 1 
+D2 30 15 DLIM 
+DSD 10 3 DSUB 
+.MODEL PMOS PMOS LEVEL = 3 U0 = 400 VMAX = 1E+006 ETA = 0.001 
++ TOX = 6E-008 NSUB = 1E+016 KP = 6.629 KAPPA = 19.32 VTO = -0.6459 
+.MODEL DCGD D CJO = 1.177E-010 VJ = 0.611 M = 0.6 
+.MODEL DSUB D IS = 0.0001419 N = 4.041 RS = 7.253E-009 BV = 22 CJO = 2.853E-011 VJ = 0.7195 M = 0.6 
+.MODEL DLIM D IS = 0.0001 
+.ENDS
+* Diodes DMG2301L Spice Model v1.0M Last Revised 2018/2/1
+
+
+**  DMG2305UX Spice Model  _____________________________________________________
+**  TERMINALS:  D  G  S
+.SUBCKT DMG2305UX 10 20 30 
+M1 1 2 3 3 PMOS L = 1E-006 W = 1E-006 
+RD 10 1 0.02969 
+RS 30 3 0.001 
+RG 20 2 15.2 
+CGS 2 3 7.613E-010 
+EGD 12 30 2 1 1 
+VFB 14 30 0 
+FFB 2 1 VFB 1 
+CGD 13 14 1.28E-009 
+R1 13 30 1 
+D1 13 12 DLIM 
+DDG 14 15 DCGD 
+R2 12 15 1 
+D2 30 15 DLIM 
+DSD 10 3 DSUB 
+.MODEL PMOS PMOS LEVEL = 3 U0 = 400 VMAX = 1E+006 ETA = 0.001 
++ TOX = 6E-008 NSUB = 1E+016 KP = 26.49 KAPPA = 65.74 VTO = -0.8201 
+.MODEL DCGD D CJO = 5.79E-010 VJ = 0.2973 M = 0.5774 
+.MODEL DSUB D IS = 3.162E-009 N = 1.241 RS = 0.08353 BV = 1E+006 CJO = 5.653E-011 VJ = 0.008286 M = 0.1128 
+.MODEL DLIM D IS = 0.0001 
+.ENDS
+* Diodes DMG2305UX Spice Model v1.0 Last Revised 2013/10/22
+
+
+**  DMG2305UXQ Spice Model  ____________________________________________________
+*   TERMINALS:  D  G  S
+.SUBCKT DMG2305UXQ 10 20 30 
+M1 1 2 3 3 PMOS L = 1E-006 W = 1E-006 
+RD 10 1 0.02969 
+RS 30 3 0.001 
+RG 20 2 15.2 
+CGS 2 3 7.613E-010 
+EGD 12 30 2 1 1 
+VFB 14 30 0 
+FFB 2 1 VFB 1 
+CGD 13 14 1.28E-009 
+R1 13 30 1 
+D1 13 12 DLIM 
+DDG 14 15 DCGD 
+R2 12 15 1 
+D2 30 15 DLIM 
+DSD 10 3 DSUB 
+.MODEL PMOS PMOS LEVEL = 3 U0 = 400 VMAX = 1E+006 ETA = 0.001 
++ TOX = 6E-008 NSUB = 1E+016 KP = 26.49 KAPPA = 65.74 VTO = -0.8201 
+.MODEL DCGD D CJO = 5.79E-010 VJ = 0.2973 M = 0.5774 
+.MODEL DSUB D IS = 3.162E-009 N = 1.241 RS = 0.08353 BV = 1E+006 CJO = 5.653E-011 VJ = 0.008286 M = 0.1128 
+.MODEL DLIM D IS = 0.0001 
+.ENDS
+* Diodes DMG2305UXQ Spice Model v1.0 Last Revised 2018/2/1
+
+
+**  DMP2305U Spice Model  ______________________________________________________
+*   TERMINALS:  D  G  S
+.SUBCKT DMP2305U 10 20 30
+M1 1 2 3 3  PMOS  L = 1E-006  W = 1E-006 
+RD 10 1 0.03653 
+RS 30 3 0.001 
+RG 20 2 23 
+CGS 2 3 6.954E-010 
+EGD 12 30 2 1 1 
+VFB 14 30 0 
+FFB 2 1  VFB 1 
+CGD 13 14 8.85E-010 
+R1 13 30 1 
+D1 13 12  DLIM 
+DDG 14 15  DCGD 
+R2 12 15 1 
+D2 30 15  DLIM 
+DSD 10 3  DSUB 
+.MODEL PMOS PMOS  LEVEL = 3  U0 = 400  VMAX = 1.385E+005  ETA = 0.001 
++ TOX = 6E-008  NSUB = 1E+016  KP = 24.44  KAPPA = 0.8442  VTO = -0.8978 
+.MODEL DCGD D  CJO = 3.468E-010  VJ = 0.2064  M = 0.3945 
+.MODEL DSUB D  IS = 4.536E-009  N = 1.339  RS = 0.05752  BV = 30  CJO = 2.406E-011  VJ = 1.677E-012  M = 0.8 
+.MODEL DLIM D  IS = 0.0001 
+.ENDS
+* Diodes DMP2305U Spice Model v1.0 Last Revised 2011/6/20
+
+
+**  DMP2065U Spice Model  ______________________________________________________
+*   TERMINALS:  D  G  S
+.SUBCKT  DMP2065U 10 20 30 
+M1 1 2 3 3 PMOS L = 1E-006 W = 1E-006 
+RD 10 1 0.02969 
+RS 30 3 0.001 
+RG 20 2 15.2 
+CGS 2 3 7.613E-010 
+EGD 12 30 2 1 1 
+VFB 14 30 0 
+FFB 2 1 VFB 1 
+CGD 13 14 1.28E-009 
+R1 13 30 1 
+D1 13 12 DLIM 
+DDG 14 15 DCGD 
+R2 12 15 1 
+D2 30 15 DLIM 
+DSD 10 3 DSUB 
+.MODEL PMOS PMOS LEVEL = 3 U0 = 400 VMAX = 1E+006 ETA = 0.001 
++ TOX = 6E-008 NSUB = 1E+016 KP = 26.49 KAPPA = 65.74 VTO = -0.8201 
+.MODEL DCGD D CJO = 5.79E-010 VJ = 0.2973 M = 0.5774 
+.MODEL DSUB D IS = 3.162E-009 N = 1.241 RS = 0.08353 BV = 1E+006 CJO = 5.653E-011 VJ = 0.008286 M = 0.1128 
+.MODEL DLIM D IS = 0.0001 
+.ENDS
+* Diodes DMP2065U Spice Model v1.0 Last Revised 2020/2/1
+
+
+**  DMG3413L Spice Model  ______________________________________________________
+.SUBCKT DMG3413L 10 20 30 
+*   TERMINALS:  D  G  S
+M1 1 2 3 3  PMOS  L = 1E-006  W = 1E-006 
+RD 10 1 0.04181 
+RS 30 3 0.001 
+RG 20 2 12.29 
+CGS 2 3 3.719E-010 
+EGD 12 30 2 1 1 
+VFB 14 30 0 
+FFB 2 1  VFB 1 
+CGD 13 14 1.46E-009 
+R1 13 30 1 
+D1 13 12  DLIM 
+DDG 14 15  DCGD 
+R2 12 15 1 
+D2 30 15  DLIM 
+DSD 10 3  DSUB 
+.MODEL PMOS PMOS  LEVEL = 3  U0 = 400  VMAX = 1E+006  ETA = 0.001 
++ TOX = 6E-008  NSUB = 1E+016  KP = 9.397  KAPPA = 9.681  VTO = -1.023 
+.MODEL DCGD D  CJO = 3.903E-010  VJ = 0.2566  M = 0.45 
+.MODEL DSUB D  IS = 2.936E-009  N = 1.327  RS = 0.07557  BV = 33  CJO = 1.598E-010  VJ = 0.4699  M = 0.5274 
+.MODEL DLIM D  IS = 0.0001 
+.ENDS
+* Diodes DMG3413L Spice Model v1.0 Last Revised 2015/6/4
+
+
+********************************************************************************
+*	Alpha & Omega Semiconductor
+*	http://www.aosmd.com/products/p-ch-mosfets
+********************************************************************************
+
+.SUBCKT	AO3413	4 1 2							
+.param Ascale=		0.418							
+*** Ascale used to scale the active area of the mosfet.It could be any positive data	
+M1  3 5 2 2 PMOS W={	Ascale*	0.9375	}	L=	0.000002		
+M2  2 5 2 3 NMOS W={	Ascale*	0.9375	}	L=	0.0000031		
+R1 4 3 RTEMP {	0.026	/	Ascale	}				
+RG 1 5 	12								
+CGS 5 2	{	1E-12	*	Ascale	}				
+DBD 3 2     DBD									
+
+
+.MODEL  PMOS       PMOS  (LEVEL  = 3 									
++ TOX    = 		1.50E-08							
++ NSUB   = 		5E+15							
++ VTO=		-0.7							
++ THETA  = 		0							
++ kp= 		7.15E-05							
++ TPG=1  )									
+									
+.MODEL  NMOS       NMOS  (LEVEL  = 3 									
++ TOX    = 		1.5E-07							
++ NSUB   = 		2.0E+15							
+ +TPG=-1  )									
+
+.MODEL DBD D (CJO={			Ascale	*	2.1E-10	}			
++ VJ= 	0.7								
++ M= 	0.5								
++ RS= 	{0.007/	Ascale	}						
++ IS= {AScale*		4.0E-12	}						
++ TT= 	8.00E-09								
++ BV= 	35								
++ IBV= 	0.00025	)							
+
+.MODEL RTEMP RES (TC1=3E-3)									
+
+.ENDS
+

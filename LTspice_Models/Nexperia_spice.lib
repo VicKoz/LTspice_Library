@@ -1,0 +1,411 @@
+*
+****************************************************************
+* 1PS10SB82
+* Nexperia
+* Schottky barrier diode
+* IFmax = 30mA
+* VRmax = 15V
+* VFmax = 700mV   @ IF = 30mA
+* IRmax = 0,2µA   @ VR = 1V
+* Package pinning does not match Spice model pinning.
+* Package: DFN1006-2 (SOD882)
+* Package Pin 1: Cathode
+* Package Pin 2: Anode
+* Extraction date (week/year): #
+* Simulator: PSPICE
+****************************************************************
+* The resistor R1 does not reflect a physical device. 
+* Instead it improves modeling in the reverse mode of operation.
+*
+.SUBCKT 1PS10SB82 1 2 
+R1 1 2 3E+7 
+D1 1 2 1PS10SB82
+*
+.MODEL 1PS10SB82 D 
++ IS = 1.042E-8 
++ N = 1.029 
++ BV = 17 
++ IBV = 0.001 
++ RS = 5.567 
++ CJO = 9.779E-13 
++ VJ = 0.2925 
++ M = 0.194 
++ FC = 0.5 
++ EG = 0.69 
++ XTI = 2 
+.ENDS
+
+
+****************************************************************
+* 1PS66SB17
+* NXP Semiconductors
+* 40V, 30mA low Cd Schottky barrier diode
+* VF = 470mV @ IF = 10mA
+* Package pinning does not match Spice model pinning.
+* Package: SOT323
+*
+* Package Pin 1 : Anode         D1 
+* Package Pin 2 : Anode         D2
+* Package Pin 3 : Anode         D3 
+* Package Pin 4 : Cathode       D3 
+* Package Pin 5 : Cathode       D2
+* Package Pin 6 : Cathode       D1
+* Simulator: SPICE2
+****************************************************************
+.SUBCKT 1PS66SB17 1 2 
+* The Resistors do not reflect physical devices. 
+* Instead they improve modeling in the reverse mode of operation.
+R1 1 2 6E+07
+D1 1 2 1PS66SB17
+*
+.MODEL 1PS66SB17 D 
++ IS = 1.419E-09 
++ N = 1.022 
++ BV = 6 
++ IBV = 2.45E-06 
++ RS = 5.112 
++ CJO = 7.662E-13
++ VJ = 0.1681 
++ M = 0.1995
++ FC = 0.5 
++ EG = 0.69 
++ XTI = 2 
+.ENDS
+
+
+****************************************************************
+* 1PS66SB82
+* NXP Semiconductors
+* 15V, 30mA low Cd Schottky barrier diode
+* VF = 700mV @ IF = 30mA
+* Package pinning does not match Spice model pinning.
+* Package: SOT666
+*
+* Package Pin 1 : Anode         D1 
+* Package Pin 2 : Anode         D2
+* Package Pin 3 : Anode         D3 
+* Package Pin 4 : Cathode       D3 
+* Package Pin 5 : Cathode       D2
+* Package Pin 6 : Cathode       D1
+* Simulator: SPICE2
+****************************************************************
+*#
+.SUBCKT 1PS66SB82 1 2 
+* The Resistors do not reflect physical devices. 
+* Instead they improve modeling in the reverse mode of operation.
+*
+R1 1 2 3E+7
+D1 1 2 1PS66SB82
+*
+.MODEL 1PS66SB82 D 
++ IS = 1.042E-8 
++ N = 1.029 
++ BV = 17 
++ IBV = 0.001 
++ RS = 5.567 
++ CJO = 9.779E-13 
++ VJ = 0.2925 
++ M = 0.194 
++ FC = 0.5 
++ EG = 0.69 
++ XTI = 2 
+.ENDS
+
+
+****************************************************************
+* 1PS70SB82
+* NXP Semiconductors
+* Schottky barrier (double) diodes
+* VF   = 700mV   @ IF = 30mA
+* Package pinning does not match Spice model pinning.
+* Package: SOT323
+* Package Pin 1 : Anode                 
+* Package Pin 2 : not connected
+* Package Pin 3 : Cathode 
+* Simulator: SPICE2
+****************************************************************
+*#
+.SUBCKT 1PS70SB82 1 2 
+* The resistors do not reflect physical devices. 
+* Instead they improve modeling in the reverse mode of operation.
+*
+R1 1 2 3E+07
+D1 1 2 1PS70SB82
+*
+.MODEL 1PS70SB82 D
++ IS = 1.042E-08
++ N = 1.029
++ BV = 20
++ IBV = 0.001
++ RS = 5.567
++ CJO = 1.029E-12
++ VJ = 0.2159
++ M = 0.1731
++ FC = 0
++ TT = 0
++ EG = 0.69
++ XTI = 2
+.ENDS
+
+
+****************************************************************
+* 1PS76SB17
+* NXP Semiconductors
+* 4V, 30mA low Cd Schottky barrier diode
+* IFSM = 600mA   @ tp > 10ms
+* VF   = 470mV   @ IF = 10mA
+* Package pinning does not match Spice model pinning.
+* Package: SOT323
+* Package Pin 1 : Cathode                     
+* Package Pin 2 : Anode              
+* Simulator: SPICE2
+****************************************************************
+*#
+.SUBCKT 1PS76SB17 1 2
+* The Resistor R1 does not reflect a physical device.
+* Instead it improves modeling in the reverse mode of operation.
+*
+R1 1 2 6E+07 
+D1 1 2 1PS76SB17
+* 
+.MODEL 1PS76SB17 D( 
++ IS = 1.419E-09 
++ N = 1.022 
++ BV = 6 
++ IBV = 2.45E-06 
++ RS = 5.112 
++ CJO = 7.867E-13 
++ VJ = 0.1043 
++ M = 0.1439 
++ FC = 0.5 
++ TT = 0 
++ EG = 0.69 
++ XTI = 2) 
+.ENDS
+
+
+****************************************************************
+* 1PS79SB17
+* NXP Semiconductors
+* 4V, 30mA low Cd Schottky barrier diode
+* IFSM = 600mA   @ tp > 10ms
+* VF   = 470mV   @ IF = 10mA
+* Package pinning does not match Spice model pinning.
+* Package: SOD523
+* Package Pin 1 : Cathode                     
+* Package Pin 2 : Anode              
+* Simulator: SPICE2
+****************************************************************
+*#
+.SUBCKT 1PS79SB17 1 2
+* The Resistor R1 does not reflect a physical device. 
+* Instead it improves modeling in the reverse mode of operation.
+*
+R1 2 1 6E+07
+D1 2 1 1PS79SB17
+*
+.MODEL 1PS79SB17 D
++ IS = 1.419E-9
++ N = 1.022
++ BV = 6
++ IBV = 2.45E-6 
++ RS = 5.112
++ CJO = 7.662E-13
++ VJ = 0.1681
++ M = 0.1995
++ FC = 0.5
++ EG = 0.69
++ XTI = 2
+.ENDS
+
+
+****************************************************************
+* BAT17
+* Nexperia
+* Schottky barrier diode
+* IFmax = 30mA
+* VRmax = 4V
+* VFmax = 600mV    @ IF = 10A
+* IRmax = 1,25µA   @ VR = 3V
+* Package pinning does not match Spice model pinning.
+* Package: SOT23
+* Package Pin 1: Anode
+* Package Pin 2: Not Connected
+* Package Pin 3: Cathode
+* Extraction date (week/year): #
+* Simulator: PSPICE
+****************************************************************
+* The resistor R1 does not reflect physical devices 
+* but improve only modeling in the reverse mode of operation.
+*
+.SUBCKT BAT17 1 2
+R1 1 2 6E+07
+D1 1 2 BAT17
+*
+.MODEL BAT17 D 
++ IS = 1.419E-09 
++ N = 1.022 
++ BV = 6 
++ IBV = 2.45E-06 
++ RS = 5.112 
++ CJO = 7.867E-13 
++ VJ = 0.1043 
++ M = 0.1439 
++ FC = 0.5 
++ TT = 0 
++ EG = 0.69 
++ XTI = 2 
+.ENDS
+
+
+****************************************************************
+* PMBD353
+* NXP Semiconductors
+* Schottky barrier double diode
+* IFSM =       @ tp = 
+* VF   = 600mV @ IF = 10mA
+* Package pinning does not match Spice model pinning.
+* Package: SOT23
+* Package Pin 1: Cathode           D1
+* Package Pin 2: Anode             D2
+* Package Pin 3: Anode;Cathode     D1;D2
+* Simulator: SPICE2 
+****************************************************************
+*#
+.SUBCKT PMBD353 1 2
+* The resistor R1 does not  reflect a physical device but improves 
+* only modeling in the reverse mode of operation.
+*
+R1 1 2 6E+07
+D1 1 2 PMBD353
+*
+.MODEL PMBD353 D 
++ IS = 1.419E-09 
++ N = 1.022 
++ BV = 6 
++ IBV = 2.45E-06 
++ RS = 5.112 
++ CJO = 7.867E-13 
++ VJ = 0.1043 
++ M = 0.1439 
++ FC = 0.5 
++ TT = 0 
++ EG = 0.69 
++ XTI = 2 
+.ENDS
+
+
+****************************************************************
+* PMBD354
+* Nexperia
+* Schottky barrier double diode
+* IFmax = 30mA
+* VRmax = 4V
+* VFmax = 600mV    @ IF = 10mA
+* IRmax = 0,25µA   @ VR = 3V
+* Package pinning does not match Spice model pinning.
+* Package: SOT23
+* Package Pin 1: Cathode 	   K1
+* Package Pin 2: Anode   	   A2
+* Package Pin 3: Common Connection A1,K2
+* Extraction date (week/year): #
+* Simulator: PSPICE
+****************************************************************
+* The resistor R1 does not reflect a physical device. 
+* Instead it improves modeling in the reverse mode of operation.
+*
+.SUBCKT PMBD354 1 2
+R1 1 2 6E+07
+D1 1 2 PMBD354
+*
+.MODEL PMBD354 D 
++ IS = 1.419E-09 
++ N = 1.022 
++ BV = 6 
++ IBV = 2.45E-06 
++ RS = 5.112 
++ CJO = 7.867E-13 
++ VJ = 0.1043 
++ M = 0.1439 
++ FC = 0.5 
++ TT = 0 
++ EG = 0.69 
++ XTI = 2 
+.ENDS
+
+********************************************************************************
+
+
+****************************************************************
+* 1PS79SB70
+* NXP Semiconductors
+* General-purpose Schottky diodes
+* IFSM = 100mA   @ tp > 10ms
+* VF   = 410mV   @ IF = 1mA
+* Package pinning does not match Spice model pinning.
+* Package: SOD523
+* Package Pin 1 : Cathode                     
+* Package Pin 2 : Anode              
+* Simulator: SPICE2
+****************************************************************
+*#
+.SUBCKT 1PS79SB70 1 2
+* The Resistor R1 does not reflect a physical device. 
+* Instead it improves modeling in the reverse mode of operation.
+*
+R1 1 2 1.409E+09 
+D1 1 2 1PS79SB70
+*  
+.MODEL 1PS79SB70 D(
++ IS = 3.22E-09 
++ N = 1.018 
++ BV = 77
++ IBV = 1.67E-07 
++ RS = 20.89 
++ CJO = 1.655E-12 
++ VJ = 0.349
++ M = 0.3583
++ FC = 0.5 
++ TT = 0 
++ EG = 0.69 
++ XTI = 2) 
+.ENDS
+
+
+****************************************************************
+* PMEG2005CT
+* Nexperia
+* 500 mA low VF dual MEGA Schottky barrier rectifier
+* IFmax = 500mA (average)
+* VRmax = 20V
+* VFmax = 390mV   @ IF = 500mA
+* IRmax = 200µA   @ VR = 20V
+* Package pinning does not match Spice model pinning.
+* Package: SOT23
+* Package Pin 1: Anode          D1
+* Package Pin 2: Anode          D2
+* Package Pin 3: Common Cathode
+* Extraction date (week/year): #
+* Simulator: SPICE2
+****************************************************************
+* The resistor R1 does not reflect a physical device. 
+* Instead it improves modeling in the reverse mode of operation.
+*
+.SUBCKT PMEG2005CT 1 2
+R1 1 2 1.287E+6 
+D1 1 2 PMEG2005CT
+*
+.MODEL PMEG2005CT D 
++ IS = 3.5E-6
++ N = 0.9927
++ BV = 22
++ IBV = 0.001
++ RS = 0.08634
++ CJO = 1.2E-10
++ VJ = 0.3688
++ M = 0.506
++ FC = 0.5
++ EG = 0.69
++ XTI = 2
+.ENDS
+*

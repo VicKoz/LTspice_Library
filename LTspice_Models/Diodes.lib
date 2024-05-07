@@ -1,7 +1,7 @@
 ********************************************************************************
 **	@author		ViKo
 **	@brief		Diodes spice models
-**	@date		2016.10
+**	@date		2016 - 2024
 **	@note		place link to folder in control settings LTspice or in file.asc
 **
 
@@ -117,9 +117,6 @@
 .MODEL  1PS70SB46 D(IS=1.419E-08 N=1.025 BV=44 IBV=1.255E-07 RS=4.942 CJO=4.046E-12 VJ=0.323 M=0.4154 FC=0.5 TT=0 EG=0.69 XTI=2)
 .MODEL  1PS76SB10 D(IS=2.548E-07 N=1.02 BV=33 IBV=1.251E-06 RS=2.582 CJO=9.92E-12 VJ=0.317 M=0.4411 FC=0.5 TT=0 EG=0.69 XTI=2)
 .MODEL  1PS76SB21 D(IS=1.009E-06 N=1.017 BV=44 IBV=0.001611 RS=0.6578 CJO=3.76E-11 VJ=0.274 M=0.4381 FC=0.5 TT=0 EG=0.69 XTI=2)
- 
-
-
 
 
 .MODEL  1PS79SB70 D(IS=3.22E-09 N=1.018 BV=77 IBV=1.67E-07 RS=20.89 CJO=1.655E-12 VJ=0.349 M=0.3583 FC=0.5 TT=0 EG=0.69 XTI=2 Mfg=Nexperia Type=Schottky)
@@ -266,3 +263,5 @@
 .MODEL XM-LBLU D IS=5.84635E-11 N=5.220712964 RS=0.228138464 XTI=50.63276655 EG=2.5 mfg=Cree type=Led
 .MODEL XM-LGRN D IS=2.91045E-07 N=8.795766407 RS=0.386537629 XTI=66.28627594 EG=2.5 mfg=Cree type=Led
 .MODEL XM-LRED D IS=1.0659E-13 N=2.780597122 RS=0.545421573 XTI=17.9643995 EG=2.1 mfg=Cree type=Led
+
+

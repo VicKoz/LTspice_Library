@@ -197,3 +197,58 @@ DSD 10 3  DSUB
 .MODEL DLIM D  IS = 0.0001 
 .ENDS
 * Diodes Spice Model v1.1 Last Revised 2021/05/26
+
+**  Rectifiers  ________________________________________________________________
+
+* SRC=ABS10A;DI_ABS10A;Diodes;Si;	1000V 1.0A 3.00us Diodes Inc. Bridge -- for one element
+.MODEL DI_ABS10A D  ( IS=3.47n RS=42.6m BV=1000 IBV=5.00u CJO=25.2p  M=0.333 N=1.70 TT=4.32u )
+
+* SRC=DF04M;DI_DF04M;Diodes;Si;	400V 1.00A 3.00us Diodes Inc. Bridge -- for one element 
+.MODEL DI_DF04M D  ( IS=4.42n RS=42.0m BV=400 IBV=10.0u CJO=65.0p  M=0.333 N=1.70 TT=4.32u )
+
+* SRC=DF04S;DI_DF04S;Diodes;Si;	400V 1.00A 3.00us Diodes Inc. Bridge -- for one element 
+.MODEL DI_DF04S D  ( IS=4.42n RS=42.0m BV=400 IBV=10.0u CJO=65.0p  M=0.333 N=1.70 TT=4.32u )
+
+* SRC=DF06M;DI_DF06M;Diodes;Si;	600V 1.00A 3.00us Diodes Inc. Bridge -- for one element 
+.MODEL DI_DF06M D  ( IS=4.42n RS=42.0m BV=600 IBV=10.0u CJO=65.0p  M=0.333 N=1.70 TT=4.32u )
+
+* SRC=DF06S;DI_DF06S;Diodes;Si;	600V 1.00A 3.00us Diodes Inc. Bridge -- for one element 
+.MODEL DI_DF06S D  ( IS=4.42n RS=42.0m BV=600 IBV=10.0u CJO=65.0p  M=0.333 N=1.70 TT=4.32u )
+
+* SRC=DF08M;DI_DF08M;Diodes;Si;	800V 1.00A 3.00us Diodes Inc. Bridge -- for one element 
+.MODEL DI_DF08M D  ( IS=4.42n RS=42.0m BV=800 IBV=10.0u CJO=65.0p  M=0.333 N=1.70 TT=4.32u )
+
+* SRC=DF08S;DI_DF08S;Diodes;Si;	800V 1.00A 3.00us Diodes Inc. Bridge -- for one element 
+.MODEL DI_DF08S D  ( IS=4.42n RS=42.0m BV=800 IBV=10.0u CJO=65.0p  M=0.333 N=1.70 TT=4.32u )
+
+* SRC=DF10M;DI_DF10M;Diodes;Si;	1.00kV 1.00A 3.00us Diodes Inc. Bridge -- for one element 
+.MODEL DI_DF10M D  ( IS=4.42n RS=42.0m BV=1.00k IBV=10.0u CJO=65.0p  M=0.333 N=1.70 TT=4.32u )
+
+* SRC=DF10S;DI_DF10S;Diodes;Si;	1.00kV 1.00A 3.00us Diodes Inc. Bridge -- for one element 
+.MODEL DI_DF10S D  ( IS=4.42n RS=42.0m BV=1.00k IBV=10.0u CJO=65.0p  M=0.333 N=1.70 TT=4.32u )
+
+* SRC=DF1504S;DI_DF1504S;Diodes;Si;	400V 1.50A 3.00us Diodes Inc. Bridge -- for one element
+.MODEL DI_DF1504S D  ( IS=2.06n RS=28.1m BV=400 IBV=10.0u CJO=65.0p  M=0.333 N=1.70 TT=4.32u )
+
+* SRC=DF1506S;DI_DF1506S;Diodes;Si;	600V 1.50A 3.00us Diodes Inc. Bridge -- for one element
+.MODEL DI_DF1506S D  ( IS=2.06n RS=28.1m BV=600 IBV=10.0u CJO=65.0p  M=0.333 N=1.70 TT=4.32u )
+
+* SRC=DF1508S;DI_DF1508S;Diodes;Si;	800V 1.50A 3.00us Diodes Inc. Bridge -- for one element
+.MODEL DI_DF1508S D  ( IS=2.06n RS=28.1m BV=800 IBV=10.0u CJO=65.0p  M=0.333 N=1.70 TT=4.32u )
+
+* SRC=DF1510S;DI_DF1510S;Diodes;Si;	1.00kV 1.50A 3.00us Diodes Inc. Bridge -- for one element
+.MODEL DI_DF1510S D  ( IS=2.06n RS=28.1m BV=1.00k IBV=10.0u CJO=65.0p  M=0.333 N=1.70 TT=4.32u )
+
+
+
+
+
+
+
+
+
+
+
+
+
+

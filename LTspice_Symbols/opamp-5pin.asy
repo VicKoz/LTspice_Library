@@ -13,7 +13,7 @@ LINE Normal 8 40 8 48
 LINE Normal 4 84 12 84
 WINDOW 0 32 48 Left 2
 WINDOW 3 16 80 Left 2
-SYMATTR Value opamp2-6
+SYMATTR Value opamp-5
 SYMATTR Prefix X
 SYMATTR Description Basic Operational Amplifier symbol for use with subcircuits in the file ./lib/sub/LTC.lib.  You must give the value a name and include this file.
 PIN -32 80 NONE 0

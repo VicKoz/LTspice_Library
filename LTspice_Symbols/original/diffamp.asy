@@ -1,0 +1,37 @@
+Version 4
+SymbolType BLOCK
+LINE Normal -48 48 -48 -48
+LINE Normal 48 0 -48 48
+LINE Normal -48 -48 48 0
+LINE Normal 0 -24 0 -48
+LINE Normal 16 -16 32 -16
+LINE Normal 17 16 32 16
+LINE Normal 0 24 0 48
+LINE Normal -48 -32 -64 -32
+LINE Normal -48 0 -64 0
+LINE Normal -48 32 -64 32
+CIRCLE Normal -42 26 -54 38
+CIRCLE Normal 22 -22 10 -10
+SYMATTR Prefix X
+SYMATTR Description Differential Amplifier
+PIN -64 -32 LEFT 20
+PINATTR PinName INP
+PINATTR SpiceOrder 1
+PIN -64 32 LEFT 20
+PINATTR PinName INN
+PINATTR SpiceOrder 2
+PIN 0 -48 LEFT 4
+PINATTR PinName VP
+PINATTR SpiceOrder 3
+PIN 0 48 LEFT 4
+PINATTR PinName VN
+PINATTR SpiceOrder 4
+PIN 32 -16 BOTTOM 2
+PINATTR PinName OUTN
+PINATTR SpiceOrder 5
+PIN 32 16 TOP 2
+PINATTR PinName OUTP
+PINATTR SpiceOrder 6
+PIN -64 0 LEFT 20
+PINATTR PinName VCM
+PINATTR SpiceOrder 7

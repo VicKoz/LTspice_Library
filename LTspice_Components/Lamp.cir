@@ -1,0 +1,15 @@
+* Hi Lo Thermal
+.subckt Lamp 2 3 8
+V4 2 5
+RV4 3 5 1Meg
+E9 5 3 Poly(2) 4 0 10 0 0 0 0 0 {V*V/P}
+RE5 5 3 1Meg
+G6 0 8 Poly(2) 4 0 5 3 0 0 0 0 1
+R2 8 7 {2600/P}
+V3 7 0 300
+C1 8 0 {1.57M*P}
+EPOLY 10 0 8 0 -4.000190E-1, 1.789738E-3, -9.088125E-7, +2.048935E-10, -1.642730E-14
+REPOLY 10 0 1Meg
+H1 4 0 V4 1
+RH1 4 0 1Meg
+.ends

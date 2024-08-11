@@ -1,0 +1,22 @@
+Version 4
+SymbolType BLOCK
+LINE Normal 24 8 24 -40
+LINE Normal 16 0 0 0
+LINE Normal 48 -32 24 -32
+LINE Normal 48 0 24 0
+LINE Normal 48 0 48 16
+LINE Normal 48 -48 48 -32
+LINE Normal 16 -32 16 0
+LINE Normal 16 -32 16 -32
+WINDOW 0 48 -16 Left 2
+SYMATTR Prefix X
+SYMATTR Description MOSFET N or P channel
+PIN 48 -48 LEFT 4
+PINATTR PinName D
+PINATTR SpiceOrder 1
+PIN 0 0 BOTTOM 2
+PINATTR PinName G
+PINATTR SpiceOrder 2
+PIN 48 16 LEFT 4
+PINATTR PinName S
+PINATTR SpiceOrder 3

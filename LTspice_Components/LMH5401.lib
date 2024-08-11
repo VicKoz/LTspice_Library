@@ -157,7 +157,11 @@ R_R38         P2N VMID  1
 E_E10         LIM_INN VMID N891663 VMID 1.0005
 .ENDS
 *$
+<<<<<<< HEAD
 *
+=======
+*****************************************************************
+>>>>>>> origin/master
 .subckt DEV_SCH_S2 1 2 3 4  
 S_S2         3 4 1 2 _S2
 RS_S2         1 2 1G
@@ -189,6 +193,10 @@ S_S3         3 4 1 2 _S3
 RS_S3         1 2 1G
 .MODEL         _S3 VSWITCH Roff=1e6 Ron=1.0 Voff=0.2V Von=0.8V
 .ends DEV_SCH_S3
+<<<<<<< HEAD
+=======
+***********************************************************************
+>>>>>>> origin/master
 *$
 .SUBCKT VNSE 1 2 
 .PARAM NLF = 9.5 
@@ -272,8 +280,13 @@ ELL NLL GNDF VALUE = {V(VEE,GNDF) - V(VHRN,GNDF)}
 RVCP_TERM VCP GNDF 1k
 RVCN_TERM VCN GNDF 1k
 EOUT OUTP OUTN VALUE = {MIN(MAX(GAIN*V(INP,INN),V(NLL,GNDF)),V(NUL,GNDF))}
+<<<<<<< HEAD
 ROUT1+ OUTP GNDF {ROUT}
 ROUT1- OUTN GNDF {ROUT}
+=======
+ROUT1P OUTP GNDF {ROUT}
+ROUT1N OUTN GNDF {ROUT}
+>>>>>>> origin/master
 .ENDS
 *$
 *
@@ -346,6 +359,7 @@ EIN2 N2 0 VALUE = {V(IN2,GNDF)}
 EIN3 N3 0 VALUE = {V(IN3,GNDF)}
 E1 OUT1P OUT1N VALUE = {MAX(MIN(a1*V(DIFF_IN),UL),LL)}
 E2 OUT2P OUT2N VALUE = {MAX(MIN(a2*V(N1)*V(N2)*PWR(V(DIFF_IN),2),UL),LL)}
+<<<<<<< HEAD
 E3 OUT3P OUT3N VALUE = {MAX(MIN(a3*V(N1)*V(N3)*PWRS(V(DIFF_IN),3),UL),LL)}
 RE1+ OUT1P 0 100
 RE1- 0 OUT1N 100
@@ -355,6 +369,20 @@ RE2- 0 OUT2N 100
 RE2d OUT2P OUT2N 200
 RE3+ OUT3P 0 100
 RE3- 0 OUT3N 100
+=======
+*******************************************************************
+*E3 OUT3P OUT3N VALUE = {MAX(MIN(a3*V(N1)*V(N3)*PWRS(V(DIFF_IN),3),UL),LL)}
+E3 OUT3P OUT3N VALUE = {MAX(MIN(a3*V(N1)*V(N3)*(V(DIFF_IN)**3),UL),LL)}
+*******************************************************************
+RE1P OUT1P 0 100
+RE1N 0 OUT1N 100
+RE1d OUT1P OUT1N 200
+RE2P OUT2P 0 100
+RE2N 0 OUT2N 100
+RE2d OUT2P OUT2N 200
+RE3P OUT3P 0 100
+RE3N 0 OUT3N 100
+>>>>>>> origin/master
 RE3d OUT3P OUT3N 200
 .ENDS
 *$
@@ -364,18 +392,40 @@ RE3d OUT3P OUT3N 200
 .PARAM VIH = 0.5
 .PARAM VIL = 0.5
 .PARAM VIMID = 1.1
+<<<<<<< HEAD
 ****
 EVSTEST NVSTEST GNDF VALUE = {IF(V(VCC,VEE) > VS_MAX,0,1)}
 EVICM NVICM GNDF VALUE = {0.5*(V(INP,GNDF)+V(INN,GNDF))}
 EVICMMAXTEST NVICMMAXTEST GNDF VALUE = {IF(V(NVICM,GNDF) > V(VCC,GNDF)+VIH,0,1)}
 EVICMMINTEST NVICMMINTEST GNDF VALUE = {IF(V(NVICM,GNDF) < V(VEE,GNDF)-VIL,0,1)}
+=======
+**********************************************************************
+*EVSTEST NVSTEST GNDF VALUE = {IF(V(VCC,VEE) > VS_MAX,0,1)}
+E1 N1 0 VALUE = {VS_MAX - V(VCC,VEE)}
+EVSTEST NVSTEST GNDF VALUE = {0.5*(SGN(V(N1))-ABS(SGN(V(N1)))+2)}
+**
+EVICM NVICM GNDF VALUE = {0.5*(V(INP,GNDF)+V(INN,GNDF))}
+**
+*EVICMMAXTEST NVICMMAXTEST GNDF VALUE = {IF(V(NVICM,GNDF) > V(VCC,GNDF)+VIH,0,1)}
+E2 N2 0 VALUE = {V(VCC,GNDF) + VIH - V(NVICM,GNDF)}
+EVICMMAXTEST NVICMMAXTEST GNDF VALUE = {0.5*(SGN(V(N2)) - ABS(SGN(V(N2))) + 2)}
+**
+*EVICMMINTEST NVICMMINTEST GNDF VALUE = {IF(V(NVICM,GNDF) < V(VEE,GNDF)-VIL,0,1)}
+E3 N3 0 VALUE = {V(NVICM,GNDF) - (V(VEE,GNDF) - VIL)}
+EVICMMINTEST NVICMMINTEST GNDF VALUE = {0.5*(SGN(V(N3)) - ABS(SGN(V(N3))) + 2)}
+**
+>>>>>>> origin/master
 * for this version, PD is inverted and ref’d to ground, not VEE *
 EPD NPD GNDF VALUE = {1 - MAX(MIN(1000*(V(PD,GND)-VIMID),1),0)}
 EOUT OUT GNDF VALUE = {V(NVSTEST,GNDF)*V(NVICMMAXTEST,GNDF)
 +*V(NVICMMINTEST,GNDF)*V(NPD,GNDF)}
 .ENDS
+<<<<<<< HEAD
 *$
 **
+=======
+************************************************************************
+>>>>>>> origin/master
 *
 *
 .SUBCKT GBW_SLEW_FDA OUTP OUTN INP INN SHDN GNDF 

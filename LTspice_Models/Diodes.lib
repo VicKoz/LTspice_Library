@@ -1,8 +1,8 @@
 ********************************************************************************
 **	@author		ViKo
 **	@brief		Diodes spice models
-**	@date		2016 - 2024
-**	@note		place link to folder in control settings LTspice or in file.asc
+**	@date		2016 - 2026
+**	@note		Place link to folder in Control Settings LTspice or in file.asc
 **
 
 .MODEL  BZX84-A10   D(IS=110.88E-18  N=.92657  RS=.85899  IKF=149.75  CJO=57.292E-12  M=.33236  VJ=.67995  ISR=49.142E-12  BV=10.124  IBV=.72438  TT=973.82E-9  Mfg=NXP Type=Zener  Vpk=10)
@@ -243,8 +243,12 @@
 .model LXML-PL01-average D(Is=7.7990e-15 Rs=1.5470 N=2.7626 Iave=350m mfg=Lumileds type=LED)
 .model LXML-PH01-average D(Is=3.0677e-10 Rs=2.1217 N=4.2190 Iave=350m mfg=Lumileds type=LED)
 .model LXML-PD01-average D(Is=3.5669e-7 Rs=2.4444 N=6.5192 Iave=350m mfg=Lumileds type=LED)
+
 .MODEL SFH4248 D IS=1.5f N=1.5702 RS=0.762 IKF=392.82 IBV=10n NBV=1 IBVL=1n NBVL=180 BV=24 CJO=14.6p VJ=0.56 M=0.055 FC=0.4 TT=8n EG=1.3 mfg=OSRAM type=LED
 .MODEL STTH3R06 D IS=8.5465u N=3.0516 RS=29.4m IKF=.13432 CJO=74.985p M=.43409 VJ=.68625 ISR=10.010E-21 NR=4.995 FC=0.5 TT=14.5n
+
+.MODEL SS14 D(IS=1E-009 N=0.625832 RS=0.0619933 EG=0.745352 XTI=0.5 CJO=2.83445E-10 VJ=0.739175 M=0.484673 FC=0.5 TT=1.4427E-009 BV=44 IBV=0.5)
+
 .model XPE2 D (IS=5.01824E-16 N=3.36413016 RS=0.244130334 XTI=40.92995615 EG=2.5000 Vpk=5 Iave=1000m mfg=Cree type=LED)
 .model XP-E2 D (IS=5.01824E-16 N=3.36413016 RS=0.244130334 XTI=40.92995615 EG=2.5000 Vpk=5 Iave=1000m mfg=Cree type=LED)
 .model HLMP-6000 d (IS=93.2P RS=42M N=3.73 BV=4 IBV=10U CJO=2.97P VJ=.75 M=.333 Iave=0.04 mfg=Avago type=LED)
